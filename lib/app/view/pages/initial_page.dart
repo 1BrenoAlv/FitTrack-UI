@@ -116,7 +116,11 @@ class _InitialPageState extends State<InitialPage> {
                           onPressed: () {
                             final String name = _textController.text.trim();
                             if (name.isEmpty) {
-                              AlertInitial.alertTextEmpty(context);
+                              AlertInitial.alertTextEmpty(
+                                context,
+                                'Campo Vazio!',
+                                'Você deve escrever um nome para continuar!',
+                              );
                             } else {
                               Navigator.pushReplacementNamed(
                                 context,
