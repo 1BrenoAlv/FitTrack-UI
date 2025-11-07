@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CardAccess extends StatelessWidget {
-  const CardAccess({super.key});
+  const CardAccess({super.key, this.onNavigate});
+
+  final Function(int)? onNavigate;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +29,8 @@ class CardAccess extends StatelessWidget {
                 iconButton: Icons.fitness_center,
                 nameDirection: 'Exercícios',
                 iconColor: Colors.blue,
+                navigation: 1,
+                onNavigation: onNavigate,
               ),
             ),
             SizedBox(width: 15),
@@ -35,6 +39,8 @@ class CardAccess extends StatelessWidget {
                 iconButton: Icons.restaurant,
                 nameDirection: 'Exercícios',
                 iconColor: Colors.green,
+                navigation: 2,
+                onNavigation: onNavigate,
               ),
             ),
           ],
@@ -50,33 +56,46 @@ class CardOption extends StatelessWidget {
     required this.nameDirection,
     required this.iconButton,
     required this.iconColor,
+    this.navigation,
+    this.onNavigation,
   });
 
   final String nameDirection;
   final IconData iconButton;
   final Color iconColor;
+  final Function(int)? onNavigation;
+  final int? navigation;
+
+  void indexNav() {}
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        gradient: ColorsConst.colorContainerMarks,
-        borderRadius: BorderRadius.circular(15),
-        border: Border.all(color: const Color.fromARGB(24, 255, 255, 255)),
-      ),
-      child: Column(
-        children: [
-          Icon(iconButton, color: iconColor),
-          SizedBox(height: 5),
-          Text(
-            nameDirection,
-            style: GoogleFonts.workSans(
-              color: Colors.white,
-              fontWeight: FontWeight.w600,
+    return InkWell(
+      onTap: () {
+        if (onNavigation != null && navigation != null) {
+          onNavigation!(navigation!);
+        }
+      },
+      child: Container(
+        padding: EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          gradient: ColorsConst.colorContainerMarks,
+          borderRadius: BorderRadius.circular(15),
+          border: Border.all(color: const Color.fromARGB(24, 255, 255, 255)),
+        ),
+        child: Column(
+          children: [
+            Icon(iconButton, color: iconColor),
+            SizedBox(height: 5),
+            Text(
+              nameDirection,
+              style: GoogleFonts.workSans(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

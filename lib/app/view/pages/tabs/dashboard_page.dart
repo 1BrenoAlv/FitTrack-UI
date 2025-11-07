@@ -7,7 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DashboardPage extends StatelessWidget {
-  const DashboardPage({super.key});
+  const DashboardPage({super.key, this.onNavigate});
+
+  final Function(int)? onNavigate;
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +91,7 @@ class DashboardPage extends StatelessWidget {
                   const SizedBox(height: 20),
                   CardWeekly(), // WEEEKLY ACTIVITY
                   const SizedBox(height: 20),
-                  CardAccess(),
+                  CardAccess(onNavigate: onNavigate),
                 ],
               ),
             ),
