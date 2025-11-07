@@ -17,7 +17,7 @@ class ExercisePage extends StatelessWidget {
             child: GridView.count(
               crossAxisCount: 2,
               crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
+              mainAxisSpacing: 7,
               children: [
                 CardExercises(),
                 CardExercises(),
