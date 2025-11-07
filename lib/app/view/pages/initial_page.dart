@@ -35,116 +35,111 @@ class _InitialPageState extends State<InitialPage> {
         decoration: BoxDecoration(gradient: ColorsConst.colorBack),
 
         child: Center(
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 40.0),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 40.0),
 
-              child: Container(
-                padding: EdgeInsets.all(30.0),
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(59, 10, 86, 173),
-                  borderRadius: BorderRadius.circular(20.0),
-                  border: Border.all(
-                    color: const Color.fromARGB(122, 10, 86, 173),
-                  ),
+            child: Container(
+              padding: EdgeInsets.all(30.0),
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(59, 10, 86, 173),
+                borderRadius: BorderRadius.circular(20.0),
+                border: Border.all(
+                  color: const Color.fromARGB(122, 10, 86, 173),
                 ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    AnimatedTextKit(
-                      animatedTexts: [
-                        TypewriterAnimatedText(
-                          'Digite seu nome',
-                          textStyle: GoogleFonts.workSans(
-                            fontSize: 24.0,
-                            fontWeight: FontWeight.w700,
-                            color: Colors.white,
-                          ),
-                          speed: Duration(milliseconds: 150),
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  AnimatedTextKit(
+                    animatedTexts: [
+                      TypewriterAnimatedText(
+                        'Digite seu nome',
+                        textStyle: GoogleFonts.workSans(
+                          fontSize: 24.0,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white,
                         ),
-                      ],
-                      totalRepeatCount: 1,
-                      pause: const Duration(milliseconds: 1000),
-                      displayFullTextOnTap: true,
-                      stopPauseOnTap: true,
-                    ),
-                    SizedBox(height: 30),
-                    Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        ClipRRect(
+                        speed: Duration(milliseconds: 150),
+                      ),
+                    ],
+                    totalRepeatCount: 1,
+                    pause: const Duration(milliseconds: 1000),
+                    displayFullTextOnTap: true,
+                    stopPauseOnTap: true,
+                  ),
+                  SizedBox(height: 30),
+                  Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(30.0),
+                        child: Image.asset(
+                          ImagesConst.imageInitial,
+                          width: 300,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(10.0),
+                        child: ClipRRect(
                           borderRadius: BorderRadius.circular(30.0),
-                          child: Image.asset(
-                            ImagesConst.imageInitial,
-                            width: 300,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(10.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(30.0),
-                            child: BackdropFilter(
-                              filter: ImageFilter.blur(
-                                sigmaX: 1.0,
-                                sigmaY: 1.0,
+                          child: BackdropFilter(
+                            filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: const Color.fromARGB(14, 0, 0, 0),
                               ),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: const Color.fromARGB(14, 0, 0, 0),
-                                ),
-                                width: 300,
-                                height: (300 / 16 * 9),
-                              ),
+                              width: 300,
+                              height: (300 / 16 * 9),
                             ),
                           ),
                         ),
-                      ],
-                    ),
-                    SizedBox(height: 30),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 30),
 
-                    TextField(
-                      controller: _textController,
-                      style: TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        hintText: "Seu nome aqui",
-                        hintStyle: TextStyle(
+                  TextField(
+                    controller: _textController,
+                    style: TextStyle(color: Colors.white),
+                    decoration: InputDecoration(
+                      hintText: "Seu nome aqui",
+                      hintStyle: TextStyle(
+                        color: const Color.fromARGB(58, 255, 255, 255),
+                      ),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          final String name = _textController.text.trim();
+                          if (name.isEmpty) {
+                            AlertInitial.alertTextEmpty(
+                              context,
+                              'Campo Vazio!',
+                              'Você deve escrever um nome para continuar!',
+                            );
+                          } else {
+                            Navigator.pushReplacementNamed(
+                              context,
+                              '/home',
+                              arguments: name,
+                            );
+                          }
+                        },
+                        icon: Icon(Icons.send, color: Colors.white70),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide(
                           color: const Color.fromARGB(58, 255, 255, 255),
                         ),
-                        suffixIcon: IconButton(
-                          onPressed: () {
-                            final String name = _textController.text.trim();
-                            if (name.isEmpty) {
-                              AlertInitial.alertTextEmpty(
-                                context,
-                                'Campo Vazio!',
-                                'Você deve escrever um nome para continuar!',
-                              );
-                            } else {
-                              Navigator.pushReplacementNamed(
-                                context,
-                                '/dashboard',
-                                arguments: name,
-                              );
-                            }
-                          },
-                          icon: Icon(Icons.send, color: Colors.white70),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          borderSide: BorderSide(
-                            color: const Color.fromARGB(58, 255, 255, 255),
-                          ),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          borderSide: BorderSide(color: Colors.white),
-                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide(color: Colors.white),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),

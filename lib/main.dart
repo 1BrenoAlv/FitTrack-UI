@@ -1,6 +1,7 @@
 import 'package:fittrack_ui/app/view/pages/dashboard_page.dart';
 import 'package:fittrack_ui/app/view/pages/exercise_page.dart';
 import 'package:fittrack_ui/app/view/pages/initial_page.dart';
+import 'package:fittrack_ui/app/view/widgets/navigator_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const InitialPage(),
         '/exercise': (context) => const ExercisePage(),
         '/dashboard': (context) => const DashboardPage(),
+        '/home': (context) => const NavigatorBar(),
       },
     );
   }

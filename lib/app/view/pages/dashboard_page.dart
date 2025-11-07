@@ -12,84 +12,89 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String name = ModalRoute.of(context)!.settings.arguments as String;
-    return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 80,
-        actionsPadding: EdgeInsets.all(20.0),
-        elevation: 0,
+    return Container(
+      width: double.infinity,
+      height: double.infinity,
+      decoration: BoxDecoration(gradient: ColorsConst.colorBack),
 
-        backgroundColor: Colors.transparent,
-        automaticallyImplyLeading: false,
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Olá $name👋',
-              style: GoogleFonts.workSans(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Text(
-              'Pronto para treinar?',
-              style: GoogleFonts.workSans(
-                fontSize: 13,
-                color: const Color.fromARGB(162, 255, 255, 255),
-              ),
-            ),
-          ],
-        ),
-        actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.notifications)),
-        ],
-      ),
-      extendBodyBehindAppBar: true,
+      child: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            floating: true,
+            snap: true,
+            toolbarHeight: 80,
+            actionsPadding: EdgeInsets.all(20.0),
+            elevation: 0,
 
-      body: Container(
-        padding: EdgeInsets.all(20.0),
-        width: double.infinity,
-        height: double.infinity,
-        decoration: BoxDecoration(gradient: ColorsConst.colorBack),
-        child: SafeArea(
-          child: ListView(
-            children: [
-              CardTrainingDay(), // Container Treino do dia
-              const SizedBox(height: 20),
-              Row(
-                // Section Mark
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: CardStatistics(
-                      titleStatistics: 'Passos',
-                      amountStatistics: '7.842',
-                      markStatistics: 'Meta: 10.000',
-                      iconStatistics: Icons.directions_run_rounded,
-                      iconColorStatistics: Colors.purple,
-                      progress: 0.78,
-                    ),
+            backgroundColor: Colors.transparent,
+            automaticallyImplyLeading: false,
+            title: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Olá $name👋',
+                  style: GoogleFonts.workSans(
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
                   ),
-                  SizedBox(width: 15),
-                  Expanded(
-                    child: CardStatistics(
-                      titleStatistics: 'Calorias',
-                      amountStatistics: '425',
-                      markStatistics: 'Meta: 600 Kcal',
-                      iconStatistics: Icons.local_fire_department,
-                      iconColorStatistics: Colors.orange,
-                      calStatistics: 'kcal',
-                      progress: 0.7,
-                    ),
+                ),
+                Text(
+                  'Pronto para treinar?',
+                  style: GoogleFonts.workSans(
+                    fontSize: 13,
+                    color: const Color.fromARGB(162, 255, 255, 255),
                   ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              CardWeekly(), // WEEEKLY ACTIVITY
-              const SizedBox(height: 20),
-              CardAccess(),
+                ),
+              ],
+            ),
+            actions: [
+              IconButton(onPressed: () {}, icon: Icon(Icons.notifications)),
             ],
           ),
-        ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                children: [
+                  CardTrainingDay(), // Container Treino do dia
+                  const SizedBox(height: 20),
+                  Row(
+                    // Section Mark
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: CardStatistics(
+                          titleStatistics: 'Passos',
+                          amountStatistics: '7.842',
+                          markStatistics: 'Meta: 10.000',
+                          iconStatistics: Icons.directions_run_rounded,
+                          iconColorStatistics: Colors.purple,
+                          progress: 0.78,
+                        ),
+                      ),
+                      SizedBox(width: 15),
+                      Expanded(
+                        child: CardStatistics(
+                          titleStatistics: 'Calorias',
+                          amountStatistics: '425',
+                          markStatistics: 'Meta: 600 Kcal',
+                          iconStatistics: Icons.local_fire_department,
+                          iconColorStatistics: Colors.orange,
+                          calStatistics: 'kcal',
+                          progress: 0.7,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+                  CardWeekly(), // WEEEKLY ACTIVITY
+                  const SizedBox(height: 20),
+                  CardAccess(),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
