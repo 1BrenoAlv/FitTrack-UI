@@ -81,7 +81,7 @@ class CardStatistics extends StatelessWidget {
                 minHeight: 6.0,
                 backgroundColor: Color.fromARGB(255, 11, 27, 48),
                 valueColor: AlwaysStoppedAnimation(
-                  const Color.fromARGB(255, 6, 167, 216),
+                  const Color.fromARGB(255, 8, 178, 221),
                 ),
               ),
             ),

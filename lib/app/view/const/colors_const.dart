@@ -12,7 +12,10 @@ class ColorsConst {
     // BACKGROUND COLOR CONTAINER DASHBOARD PAGE
     begin: Alignment.bottomLeft,
     end: Alignment.bottomRight,
-    colors: [Color.fromARGB(255, 6, 146, 189), Color.fromARGB(255, 9, 90, 212)],
+    colors: [
+      Color.fromARGB(255, 8, 178, 221),
+      Color.fromARGB(255, 6, 189, 221),
+    ],
   );
 
   static const Gradient colorContainerMarks = LinearGradient(

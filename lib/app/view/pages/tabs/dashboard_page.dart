@@ -58,7 +58,7 @@ class DashboardPage extends StatelessWidget {
               padding: const EdgeInsets.all(20),
               child: Column(
                 children: [
-                  CardTrainingDay(), 
+                  CardTrainingDay(),
                   const SizedBox(height: 20),
                   Row(
                     // Section Mark
@@ -89,7 +89,7 @@ class DashboardPage extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 20),
-                  CardWeekly(), 
+                  CardWeekly(),
                   const SizedBox(height: 20),
                   CardAccess(onNavigate: onNavigate),
                 ],
