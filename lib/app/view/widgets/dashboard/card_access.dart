@@ -37,10 +37,9 @@ class CardAccess extends StatelessWidget {
             Expanded(
               child: CardOption(
                 iconButton: Icons.restaurant,
-                nameDirection: 'Exercícios',
+                nameDirection: 'Nutrição',
                 iconColor: Colors.green,
                 navigation: 2,
-                onNavigation: onNavigate,
               ),
             ),
           ],
