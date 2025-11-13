@@ -17,7 +17,7 @@ class _NavigatorBarState extends State<NavigatorBar> {
 
   late final List<Widget> _widgetOptions = <Widget>[
     DashboardPage(onNavigate: _onItemTapped),
-    const ExercisePage(),
+    ExercisePage(onNavigate: _onItemTapped),
     const ProfilePage(),
   ];
 
