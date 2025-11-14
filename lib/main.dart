@@ -3,7 +3,6 @@ import 'package:fittrack_ui/app/view/pages/tabs/exercise_page.dart';
 import 'package:fittrack_ui/app/view/pages/initial_page.dart';
 import 'package:fittrack_ui/app/view/pages/navigator_bar.dart';
 import 'package:fittrack_ui/app/view/pages/tabs/profile_page.dart';
-import 'package:fittrack_ui/app/view/widgets/exercises/page_exercises.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

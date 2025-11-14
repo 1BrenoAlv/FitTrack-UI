@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   google_fonts: ^6.3.2
   animated_text_kit: ^4.3.0
+  flutter_launcher_icons: ^0.14.4
 
 dev_dependencies:
   flutter_test:
@@ -91,3 +92,8 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+# Adicione isso no final do arquivo (no mesmo nível de 'flutter' e 'dev_dependencies')
+flutter_launcher_icons: # add um icon no app
+  android: true   
+  ios: true       
+  image_path: "assets/icon/icon.png" # Caminho para icon
