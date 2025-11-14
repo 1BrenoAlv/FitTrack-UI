@@ -38,6 +38,7 @@ class DashboardPage extends StatelessWidget {
                   style: GoogleFonts.workSans(
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                 ),
                 Text(

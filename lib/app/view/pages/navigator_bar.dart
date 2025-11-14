@@ -30,7 +30,9 @@ class _NavigatorBarState extends State<NavigatorBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.transparent,
       body: _widgetOptions.elementAt(_selectedIndex),
+
       bottomNavigationBar: Container(
         padding: const EdgeInsets.all(3),
         decoration: BoxDecoration(
@@ -39,32 +41,43 @@ class _NavigatorBarState extends State<NavigatorBar> {
             top: Radius.circular(5),
           ),
         ),
-        child: BottomNavigationBar(
-          elevation: 0,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.fitness_center),
-              label: 'Exercícios',
+
+        child: Theme(
+          data: Theme.of(context).copyWith(
+            splashColor: Colors
+                .transparent, // esse 2 serve para tirar aquele efeito de clicar da navegacao bar
+            highlightColor: Colors.transparent,
+          ),
+          child: BottomNavigationBar(
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+            currentIndex: _selectedIndex,
+            selectedItemColor: Colors.blueAccent,
+            unselectedItemColor: Colors.grey,
+            onTap: _onItemTapped,
+            type: BottomNavigationBarType.fixed,
+            selectedLabelStyle: GoogleFonts.workSans(
+              fontWeight: FontWeight.bold,
+              fontSize: 12,
             ),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil'),
-          ],
-          currentIndex: _selectedIndex,
-          selectedItemColor: Colors.blueAccent,
-          unselectedItemColor: Colors.grey,
-          backgroundColor: Colors.transparent,
-          onTap: _onItemTapped,
-          type: BottomNavigationBarType.fixed,
-          selectedLabelStyle: GoogleFonts.workSans(
-            fontWeight: FontWeight.bold,
-            fontSize: 12,
+            unselectedLabelStyle: GoogleFonts.workSans(
+              fontWeight: FontWeight.bold,
+              fontSize: 10,
+            ),
+            selectedIconTheme: IconThemeData(size: 25),
+            unselectedIconTheme: IconThemeData(size: 20),
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.fitness_center),
+                label: 'Exercícios',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                label: 'Perfil',
+              ),
+            ],
           ),
-          unselectedLabelStyle: GoogleFonts.workSans(
-            fontWeight: FontWeight.bold,
-            fontSize: 10,
-          ),
-          selectedIconTheme: IconThemeData(size: 25),
-          unselectedIconTheme: IconThemeData(size: 20),
         ),
       ),
     );

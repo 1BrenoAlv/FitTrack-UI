@@ -1,3 +1,4 @@
+import 'package:fittrack_ui/app/view/const/colors_const.dart';
 import 'package:fittrack_ui/app/view/widgets/exercises/card_exercises.dart';
 import 'package:fittrack_ui/app/view/widgets/exercises/enum/rank_exercise.dart';
 import 'package:flutter/material.dart';
@@ -117,9 +118,10 @@ class _ExercisePageState extends State<ExercisePage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+      decoration: BoxDecoration(gradient: ColorsConst.colorBack),
+      child: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

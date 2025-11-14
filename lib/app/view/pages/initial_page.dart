@@ -27,11 +27,7 @@ class _InitialPageState extends State<InitialPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.transparent, elevation: 0),
-      extendBodyBehindAppBar: true,
       body: Container(
-        width: double.infinity,
-        height: double.infinity,
         decoration: BoxDecoration(gradient: ColorsConst.colorBack),
 
         child: Center(
